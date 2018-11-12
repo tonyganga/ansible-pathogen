@@ -1,6 +1,8 @@
 Pathogen
 =========
 
+[![Build Status](https://travis-ci.org/tonyganga/ansible-pathogen.svg?branch=master)](https://travis-ci.org/tonyganga/ansible-pathogen)
+
 This role installs tpopes pathogen to your machine.
 
 Requirements
