@@ -1,0 +1,5 @@
+---
+plugins:
+  - repo: "https://github.com/hashivim/vim-terraform.git"
+    name: "vim-terraform"
+    version: master

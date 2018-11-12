@@ -1,0 +1,27 @@
+---
+- name: "Pathogen - Create directories for autoload and bundle"
+  file:
+    path: "$HOME/.vim/{{ item }}"
+    state: directory
+  with_items:
+    - autoload
+    - bundle
+
+- name: "Pathogen - Install git"
+  apt:
+    name: git
+    state: present
+
+- name: "Pathogen - Install Pathogen"
+  get_url:
+    url: https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+    dest: $HOME/.vim/autoload/
+
+- name: "Pathogen - Install Plugins"
+  git:
+    repo: "{{ item.repo }}"
+    version: "{{ item.version }}"
+    dest: "$HOME/.vim/bundle/{{ item.name }}"
+    update: true
+    depth: 1
+  with_items: "{{ plugins }}"
